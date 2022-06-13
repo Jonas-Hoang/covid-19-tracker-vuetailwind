@@ -1,18 +1,74 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <main v-if="!loading">
+    
+      <DataTitle :text="title" :dataDate="dataDate"/>
+      <DataBoxes :stats="stats"/>
+      <CountrySelect @get-country="getCountryData" :countries ="countries"/>
+      <button @click="clearData" class=" content-center 
+      text-center bg-green-700 text-white p-3 mx-5 mr-5 
+      rounded focus:outline-none hover:bg-green-600O">
+      Clear the country
+      </button>
+      
+  </main>
+  <main v-else class="">
+      <div class="text-gray-500 text-3xl mt-10 mb-6 text-center">
+        Fetching Data
+      </div>
+      <img :src="loadingImage" class="w-24 m-auto" alt="">
+  </main>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import DataTitle from '@/components/DataTitle'
+import DataBoxes from '@/components/DataBoxes'
+import CountrySelect from '@/components/CountrySelect'
+
 
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
-  }
+    DataTitle,
+    DataBoxes,
+    CountrySelect,
+  },
+  data(){
+    return {
+      loading:true,
+      title: 'Global',
+      dataDate: '',
+      stats: {},
+      countries: [],
+      loadingImage: require('../assets/giphy.gif')
+    }
+  },
+  methods:{
+    async fetchCovidData(){
+      const res = await fetch('https://api.covid19api.com/summary')
+      const data = await res.json()
+      return data
+    },
+    getCountryData(country){
+    this.stats = country;
+    this.title = country.Country
+    },
+    async clearData(){
+      this.loading = true;
+      const data = await this.fetchCovidData();
+      this.stats = data.Global;
+      this.title = 'Global'
+      this.loading = false
+    },
+  },
+  
+  async created(){
+    const data= await this.fetchCovidData()
+    console.log(data);
+    this.dataDate = data.Date;
+    this.stats = data.Global;
+    this.countries = data.Countries;
+    this.loading = false
+    
+  },
 }
 </script>
