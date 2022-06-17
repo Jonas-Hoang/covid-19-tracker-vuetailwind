@@ -34,7 +34,7 @@ export default {
   },
   data(){
     return {
-      loading:true,
+      loading: true,
       title: 'Global',
       dataDate: '',
       stats: {},
@@ -46,6 +46,7 @@ export default {
     async fetchCovidData(){
       const res = await fetch('https://api.covid19api.com/summary')
       const data = await res.json()
+      console.log(res)
       return data
     },
     getCountryData(country){
