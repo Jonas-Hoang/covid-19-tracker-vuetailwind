@@ -3,10 +3,10 @@
     
       <DataTitle :text="title" :dataDate="dataDate"/>
       <DataBoxes :stats="stats"/>
-      <CountrySelect @get-country="getCountryData" :countries ="countries"/>
+      <CountrySelect @get-country="getCountryData" :countries="countries"/>
       <button @click="clearData" class=" content-center 
       text-center bg-green-700 text-white p-3 mx-5 mr-5 
-      rounded focus:outline-none hover:bg-green-600O">
+      rounded-3xl focus:outline-none hover:bg-green-600O">
       Clear the country
       </button>
       

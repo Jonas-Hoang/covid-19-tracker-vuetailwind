@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center w-600 h-40 bg-cyan-100 pt-7 mb-5 mx-5  shadow-md">
+    <div class="text-center w-600 h-40 bg-cyan-100 pt-7 mb-5 mx-5 rounded-3xl shadow-md">
         <h2 class="text-3xl font-bold text-emerald-500 ">{{text}}</h2>
         <div class="text-2xl mt-4 mb-10 text-sky-500">
             {{timestamp}}
