@@ -43,6 +43,7 @@ export default {
     }
   },
   methods:{
+    // Death api methods
     async fetchCovidData(){
       const res = await fetch('https://api.covid19api.com/summary')
       const data = await res.json()
