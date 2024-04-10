@@ -1,4 +1,4 @@
-# vue-covid-tracker
+# covid-19-tracker-vuetailwind
 
 ![image](https://github.com/Jonas-Hoang/vue-covid-tracker/assets/66858257/75969309-4dcf-4645-bfbb-176e9c89eb45)
 
