@@ -1,5 +1,8 @@
 # vue-covid-tracker
 
+![image](https://github.com/Jonas-Hoang/vue-covid-tracker/assets/66858257/75969309-4dcf-4645-bfbb-176e9c89eb45)
+
+maybe the api in covide19api.com close, they decided to discontinue the service on May 15th, 2023.
 ## Project setup
 ```
 npm install
