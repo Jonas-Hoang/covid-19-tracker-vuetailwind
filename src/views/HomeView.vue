@@ -45,7 +45,7 @@ export default {
   methods:{
     // Death error api methods
     async fetchCovidData(){
-      const res = await fetch('https://api.covid19api.com/summary')
+      const res = await fetch('https://covid-api.com/api/reports/total?date=2020-04-15')
       const data = await res.json()
       console.log(res)
       return data
@@ -66,9 +66,10 @@ export default {
   async created(){
     const data= await this.fetchCovidData()
     console.log(data);
-    this.dataDate = data.Date;
-    this.stats = data.Global;
-    this.countries = data.Countries;
+    console.log('alo9 alo9 ' + data.data.deaths);
+    this.dataDate = data.data.date;
+    this.stats = data.data;
+    this.countries = data.data.Countries;
     this.loading = false
     
   },
