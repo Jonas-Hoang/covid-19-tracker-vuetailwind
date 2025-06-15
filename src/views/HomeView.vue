@@ -45,14 +45,20 @@ export default {
   methods:{
     // Death error api methods
     async fetchCovidData(){
-      const res = await fetch('https://covid-api.com/api/reports/total?date=2020-04-15')
+      const res = await fetch('https://covid-api.com/api/reports/total?date=2022-04-15')
       const data = await res.json()
       console.log(res)
       return data
     },
-    getCountryData(country){
-    this.stats = country;
-    this.title = country.Country
+    async getCountryData(country){
+      
+      const res = await fetch('https://covid-api.com/api/regions')
+      const title = await res.json()
+      console.log('tttttttttt' + title);
+
+      return title
+      // this.stats = country;
+      // this.title = country.Country
     },
     async clearData(){
       this.loading = true;

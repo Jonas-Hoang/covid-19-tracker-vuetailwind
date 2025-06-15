@@ -5,11 +5,11 @@
       <h3 class="text-3xl text-blue-900 font-bold mb-4">Casses</h3>
       <div class="text-2xl mb-4">
         <span class="font-bold">New:</span>
-        {{ numberWithDots(stats.active) }}
+        {{ numberWithDots(stats.recovered) }}
       </div>
       <div class="text-2xl mb-4">
         <span class="font-bold">Total:</span>
-        {{ numberWithDots(stats.recovered) }}
+        {{ numberWithDots(stats.active) }}
       </div>
     </div>
     <!-- Box 2 -->
@@ -17,11 +17,11 @@
       <h3 class="text-3xl text-red-900 font-bold mb-4">Death</h3>
       <div class="text-2xl mb-4">
         <span class="font-bold">New:</span>
-        {{ numberWithDots(stats.deaths) }}
+        {{ numberWithDots(stats.deaths_diff) }}
       </div>
       <div class="text-2xl mb-4">
         <span class="font-bold">Total:</span>
-        {{ numberWithDots(stats.deaths_diff)}}
+        {{ numberWithDots(stats.deaths)}}
       </div>
     </div>
   </div>
