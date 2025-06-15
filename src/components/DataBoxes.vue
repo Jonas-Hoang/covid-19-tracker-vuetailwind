@@ -2,27 +2,51 @@
   <div class="grid md:grid-cols-2 gap-4">
     <!-- Box 1 -->
     <div class="shadow-md bg-blue-100 p-10 text-center rounded-3xl ml-5">
-        <h3 class="text-3xl text-blue-900 font-bold mb-4">Casses</h3>
-        <div class="text-2xl mb-4">
-            <span class="font-bold">New:</span>
-            {{ numberWithDots(stats.NewConfirmed) }}
-        </div>
-        <div class="text-2xl mb-4">
-            <span class="font-bold">Total:</span>
-            {{ numberWithDots(stats.TotalConfirmed) }}
-        </div>
+      <h3 class="text-3xl text-blue-900 font-bold mb-4">Casses</h3>
+      <div class="text-2xl mb-4">
+        <span class="font-bold">New:</span>
+        {{ numberWithDots(stats.NewConfirmed) }}
+      </div>
+      <div class="text-2xl mb-4">
+        <span class="font-bold">Total:</span>
+        {{ numberWithDots(stats.TotalConfirmed) }}
+      </div>
     </div>
     <!-- Box 2 -->
     <div class="shadow-md bg-red-100 p-10 text-center rounded-3xl mr-5">
-        <h3 class="text-3xl text-red-900 font-bold mb-4">Death</h3>
+      <h3 class="text-3xl text-red-900 font-bold mb-4">Death</h3>
+      <div class="text-2xl mb-4">
+        <span class="font-bold">New:</span>
+        {{ numberWithDots(stats.NewDeaths) }}
+      </div>
+      <div class="text-2xl mb-4">
+        <span class="font-bold">Total:</span>
+        {{ numberWithDots(stats.TotalDeaths) }}
+      </div>
+    </div>
+    <!-- Box 3 -->
+    <div class="shadow-md bg-green-100 p-10 text-center rounded-3xl ml-5">
+        <h3 class="text-3xl text-green-900 font-bold mb-4">Recovered</h3>
+        <div class="text-2xl mb-4">
+            <span class="font-bold">New:</span>
+            {{ numberWithDots(stats.NewRecovered) }}
+        </div>
+        <div class="text-2xl mb-4">
+            <span class="font-bold">Total:</span>
+            {{ numberWithDots(stats.TotalRecovered) }}
+        </div>
+    </div>
+    <!-- Box 4 -->
+    <div class="shadow-md bg-yellow-100 p-10 text-center rounded-3xl mr-5">
+        <h3 class="text-3xl text-yellow-900 font-bold mb-4">Total Deaths</h3>
         <div class="text-2xl mb-4">
             <span class="font-bold">New:</span>
             {{ numberWithDots(stats.NewDeaths) }}
         </div>
-        <div class="text-2xl mb-4">
-            <span class="font-bold">Total:</span>
-            {{ numberWithDots(stats.TotalDeaths)}}
-        </div>
+      <div class="text-2xl mb-4">
+        <span class="font-bold">Total:</span>
+        {{ numberWithDots(stats.TotalDeaths)}}
+      </div>
     </div>
   </div>
 </template>
@@ -30,13 +54,13 @@
 export default {
   name: "DataBoxes",
   props: ["stats"],
-  created(){
-    console.log(this.stats.TotalDeaths)
+  created() {
+    console.log(this.stats.TotalDeaths);
   },
   methods: {
     numberWithDots(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    }
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
   },
 };
 </script>
