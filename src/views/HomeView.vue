@@ -4,7 +4,7 @@
       <DataTitle :text="title" :dataDate="dataDate"/>
       <DataBoxes :stats="stats"/>
       <CountrySelect @get-country="getCountryData" :countries="countries"/>
-      <button @click="clearData" class=" content-center 
+      <button @click="fetchCovidData" class=" content-center 
       text-center bg-green-700 text-white p-3 mx-5 mr-5 
       rounded-3xl focus:outline-none hover:bg-green-600O">
       Clear the country
@@ -63,8 +63,8 @@ export default {
     async clearData(){
       this.loading = true;
       const data = await this.fetchCovidData();
-      this.stats = data.Global;
-      this.title = 'Global'
+      // this.stats = data.Global;
+      // this.title = 'Global'
       this.loading = false
     },
   },
